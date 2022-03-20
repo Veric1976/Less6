@@ -43,5 +43,61 @@ public class Main {
         for (int i = reverseFullName.length-1; i >= 0; i--) {
             System.out.print(reverseFullName[i]);
         }
+// Task-5
+        System.out.println();
+        int[][] firstMatrix = new int [3][3];
+        for ( int i = 0; i < 3; i++ ){
+            firstMatrix[i][i] = 1;
+            firstMatrix[2-i][i] = 1;
+        }
+        for (int[] row : firstMatrix) {
+            for (int column : row) {
+                System.out.print(column + " ");
+            }
+            System.out.println();
+        }
+// Task-6
+        int[] sourceArray = {5,4,3,2,1};
+        int[] copySourceArray = new int[5];
+        for (int i = 0; i < copySourceArray.length; i++) {
+            copySourceArray[copySourceArray.length-1-i] = sourceArray[i];
+        }
+        System.out.println(Arrays.toString(sourceArray));
+        System.out.println(Arrays.toString(copySourceArray));
+// Task-7
+        int halfLengthSourceArray = sourceArray.length / 2;
+        int tmpValueArray;
+        System.out.println("Task-7");
+        System.out.println(Arrays.toString(sourceArray));
+        for (int i = 0; i <= halfLengthSourceArray; i++) {
+            tmpValueArray = sourceArray[i];
+            sourceArray[i] = sourceArray[sourceArray.length-1-i];
+            sourceArray[sourceArray.length-1-i] = tmpValueArray;
+        }
+        System.out.println(Arrays.toString(sourceArray));
+// Task-8
+        System.out.println("Task-8");
+        int[] taskArray = {-6,2,5,-8,8,10,4,-7,12,1};
+        boolean pairIsFinded = false;
+        for (int i = 0; i < taskArray.length && !pairIsFinded; i++) {
+            for (int j = taskArray.length-1; j > i; j--) {
+                if (taskArray[i]+taskArray[j] == -2 ) {
+                    System.out.print(taskArray[i] + "'" + i + "' ");
+                    System.out.print(taskArray[j] + "'" + j + "'\n");
+                    pairIsFinded = true;
+                    break;
+                }
+            }
+        }
+// Task-9
+        System.out.println("Task-9");
+        for (int i = 0; i < taskArray.length; i++) {
+            for (int j = taskArray.length-1; j > i; j--) {
+                if (taskArray[i]+taskArray[j] == -2 ) {
+                    System.out.print(taskArray[i] + "'" + i + "' ");
+                    System.out.print(taskArray[j] + "'" + j + "'\n");
+                }
+            }
+        }
     }
 }
