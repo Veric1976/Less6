@@ -29,10 +29,10 @@ public class Main {
                 maxPayPerDay = i;
             }
         }
-        System.out.print("Минимальная сумма трат за день составила " +
+        System.out.println("Минимальная сумма трат за день составила " +
                 minPayPerDay + " рублей.");
-        System.out.print(" Максимальная сумма трат за день составила " +
-                maxPayPerDay + " рублей.\n");
+        System.out.println(" Максимальная сумма трат за день составила " +
+                maxPayPerDay + " рублей.");
 // Task-3
         float averagePayPerDay;
         averagePayPerDay = (float) sumAllDays / (float) arraySumPerDay.length;
@@ -78,10 +78,21 @@ public class Main {
 // Task-8
         System.out.println("Task-8");
         int[] taskArray = {-6,2,5,-8,8,10,4,-7,12,1};
+        int sumFinding = -2;
+        int indexSearch = taskArray.length - 1;
+        if ( sumFinding < 0 ) {
+            Arrays.sort( taskArray );
+            for ( int i = 0; i < taskArray.length; i++ ) {
+                if ( taskArray[i] > 0 ) {
+                    indexSearch = i;
+                    break;
+                }
+            }
+        }
         boolean pairIsFinded = false;
-        for (int i = 0; i < taskArray.length && !pairIsFinded; i++) {
+        for (int i = 0; i < indexSearch && !pairIsFinded; i++) {
             for (int j = taskArray.length-1; j > i; j--) {
-                if (taskArray[i]+taskArray[j] == -2 ) {
+                if (taskArray[i]+taskArray[j] == sumFinding ) {
                     System.out.print(taskArray[i] + "'" + i + "' ");
                     System.out.print(taskArray[j] + "'" + j + "'\n");
                     pairIsFinded = true;
@@ -91,9 +102,9 @@ public class Main {
         }
 // Task-9
         System.out.println("Task-9");
-        for (int i = 0; i < taskArray.length; i++) {
+        for (int i = 0; i < indexSearch; i++) {
             for (int j = taskArray.length-1; j > i; j--) {
-                if (taskArray[i]+taskArray[j] == -2 ) {
+                if (taskArray[i]+taskArray[j] == sumFinding ) {
                     System.out.print(taskArray[i] + "'" + i + "' ");
                     System.out.print(taskArray[j] + "'" + j + "'\n");
                 }
